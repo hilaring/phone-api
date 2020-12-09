@@ -10,6 +10,22 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://phoneuser:phonepassword>@projects.rscf5.mongodb.net/admin";
+const uri = "mongodb+srv://phoneuser:phonepassword@projects.rscf5.mongodb.net/PhonesAPI?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  if(err) {
+    // throw err
+    console.log('ERROR: ' + err)
+  } else {
+    console.log("\n🔥 MONGO DB Connected 🔥\n")
+  };
+  const collection = client.db("PhonesAPI").collection("phones");
+  // perform actions on the collection object
+  // client.close();
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
