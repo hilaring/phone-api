@@ -6,6 +6,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const phones = require('./routes/phones');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -16,14 +17,14 @@ const uri = "mongodb+srv://phoneuser:phonepassword@projects.rscf5.mongodb.net/Ph
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   if(err) {
-    // throw err
     console.log('ERROR: ' + err)
+    throw err
   } else {
     console.log("\n🔥 MONGO DB Connected 🔥\n")
   };
   const collection = client.db("PhonesAPI").collection("phones");
   // perform actions on the collection object
-  // client.close();
+  client.close();
 });
 
 // view engine setup
@@ -40,6 +41,8 @@ app.use(bodyParser.json());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+// app.use('/phones', phonesRouter);
+app.use('/api', phones);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

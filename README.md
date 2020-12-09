@@ -16,7 +16,7 @@ And much more info! 🔥
 ## Get
 
 ```
-https://localhost:3000/phones
+https://localhost:3000/api/phones
 ```
 
 
@@ -26,15 +26,17 @@ Response body example:
 ```json
 [
   {
-    "id": 0,
+    "_id": "0",
     "name": "iPhone 12",
     "manufacturer": "Apple",
+    "description": "iPhone 12 from Apple, California",
     "color": "Black",
     "price": 809,
-    "imageUrl": "https://image.gif",
-    "screen": "6,1 inch IPS",
-    "processor": "A10 Fusion",
-    "RAM": 6
+    "imageFileName": "https://img.pccomponentes.com/articles/32/328955/146-apple-iphone-12-mini-128gb-negro-libre.jpg",
+    "screen": "6,1 inch OLED",
+    "processor": "Apple A14 Bionic",
+    "ram": 8,
+    "__v": 0
   },
 ]
 ```

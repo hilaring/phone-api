@@ -1,5 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+mongoose.connect('mongodb+srv://phoneuser:phonepassword@projects.rscf5.mongodb.net/PhonesAPI?retryWrites=true&w=majority', { 
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+    w: "majority",
+    family: 4
+ });
 
 const phoneSchema = new Schema({
     id:             {type: Number},
