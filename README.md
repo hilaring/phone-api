@@ -46,4 +46,4 @@ Response body example:
 
 This API has been generated for a job offer test to Guide Smith by Oriol Hilari.
 
-<img src="https://images.ctfassets.net/5gv1edeicqfs/bomBQDobMA6eyu4CkuYmM/6f5debe74cf1e335bb0be7e3ecbba40b/gs-logo.png" alt="Guide Smith Logo" style="height: 80px; float: left" />
+<img src="https://images.ctfassets.net/5gv1edeicqfs/bomBQDobMA6eyu4CkuYmM/6f5debe74cf1e335bb0be7e3ecbba40b/gs-logo.png" alt="Guide Smith Logo" style="max-height: 80px; float: left" />
