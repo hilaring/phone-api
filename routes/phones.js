@@ -1,16 +1,11 @@
 const express = require('express');
-const router = express.Router();
+const Api = express.Router();
 const Phone = require('../models/phone')
 
-// const mongoose = require('mongoose');
-// const Phone = mongoose.model('Phone');
-
-
 //GET - Return all phones in the DB Collection
-router.get('/phones', function (req, res, next) {
+Api.get('/phones', function (req, res, next) {
     Phone.find({}, function (err, phoneList) {
         if (err) {
-            console.log("🤮🤮🤮🤮🤮🤮🤮🤮")
             res.json(err)
         } else {
             res.status(200).json(phoneList)
@@ -18,28 +13,21 @@ router.get('/phones', function (req, res, next) {
     })
 });
 
+//GET - Return the detail phone
+Api.get('/phones/:id'), function (req, res, next){
+    
+    var id = req.params;
 
+    Phone.findById(id, function(err, phone){
+        if(err){
+            console.log(phone)
+            res.json(err)
+        } else {
+            console.log(phone)
+            // res.status(200).json(phone)
+            res.render('index', { title: 'Express' });
+        }
+    })
+}
 
-
-
-// exports.findAllTVShows = function(req, res) {
-//     Phone.find(function(err, phones) {
-//     if(err) res.send(500, err.message);
-
-//     console.log('GET /phones')
-//         res.status(200).jsonp(phones);
-//     });
-// };
-
-
-
-
-// exports.findPhones = (req, res) => {
-//     Phone.find((err, phones) => {
-//         if(err) res.send(500, err.message);
-//         console.log('GET /phones')
-//         res.status(200).jsonp(phones)
-//     }) 
-// }
-
-module.exports = router;
+module.exports = Api;

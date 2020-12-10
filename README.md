@@ -12,7 +12,7 @@ And much more info! 🔥
 
 
 
-## Get
+## /GET - All phones
 
 ```
 https://localhost:3000/api/phones
@@ -40,7 +40,7 @@ Response body example:
 ]
 ```
 
-
+## /GET/id - Phone detail
 
 
 
