@@ -12,7 +12,6 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://phoneuser:phonepassword>@projects.rscf5.mongodb.net/admin";
 const uri = "mongodb+srv://phoneuser:phonepassword@projects.rscf5.mongodb.net/PhonesAPI?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
@@ -41,7 +40,6 @@ app.use(bodyParser.json());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/phones', phonesRouter);
 app.use('/api', phones);
 
 // catch 404 and forward to error handler

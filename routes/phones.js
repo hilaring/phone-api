@@ -2,32 +2,28 @@ const express = require('express');
 const Api = express.Router();
 const Phone = require('../models/phone')
 
-//GET - Return all phones in the DB Collection
-Api.get('/phones', function (req, res, next) {
-    Phone.find({}, function (err, phoneList) {
-        if (err) {
-            res.json(err)
-        } else {
-            res.status(200).json(phoneList)
-        }
-    })
+//GET All - Return all phones in the DB Collection
+Api.get('/phones', (req, res, next) => {
+    Phone.find({})
+        .then((phoneList) => {
+            res.send(phoneList)
+        })
+        .catch((error) => {
+            next(error)
+        })
 });
 
-//GET - Return the detail phone
-Api.get('/phones/:id'), function (req, res, next){
-    
-    var id = req.params;
 
-    Phone.findById(id, function(err, phone){
-        if(err){
-            console.log(phone)
-            res.json(err)
-        } else {
-            console.log(phone)
-            // res.status(200).json(phone)
-            res.render('index', { title: 'Express' });
-        }
-    })
-}
+//GET Detail - Return the phone detail
+Api.get('/phones/:id', (req, res, next) => {
+    const { id } = req.params;
+    Phone.findById(id)
+        .then((phone) => {
+            res.send(phone)
+        })
+        .catch((error) => {
+            next(error);
+        });
+});
 
 module.exports = Api;
