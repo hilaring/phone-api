@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const cors = require('cors');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -26,6 +27,8 @@ client.connect(err => {
   client.close();
 });
 
+app.use(cors());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -42,6 +45,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', phones);
 
+// app.get('/phones', (req, res) => {
+//   res.send("Hello")
+// })
+
+// app.get('/phones', phones);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -57,5 +66,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(process.env.PORT || 3000);
+
 
 module.exports = app;
