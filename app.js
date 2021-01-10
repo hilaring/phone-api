@@ -14,7 +14,6 @@ const app = express();
 require('dotenv').config();
 
 const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://phoneuser:phonepassword@projects.rscf5.mongodb.net/PhonesAPI?retryWrites=true&w=majority";
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
@@ -47,13 +46,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', phones);
 
-// app.get('/phones', (req, res) => {
-//   res.send("Hello")
-// })
-
-// app.get('/phones', phones);
-
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
