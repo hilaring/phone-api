@@ -11,9 +11,11 @@ const phones = require('./routes/phones');
 const bodyParser = require('body-parser');
 
 const app = express();
+require('dotenv').config();
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://phoneuser:phonepassword@projects.rscf5.mongodb.net/PhonesAPI?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://phoneuser:phonepassword@projects.rscf5.mongodb.net/PhonesAPI?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   if(err) {

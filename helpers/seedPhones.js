@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Phone = require('../models/phone.js');
 
-mongoose.connect('mongodb+srv://phoneuser:phonepassword@projects.rscf5.mongodb.net/PhonesAPI?retryWrites=true&w=majority', { 
+mongoose.connect(process.env.MONGODB_URI, { 
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
