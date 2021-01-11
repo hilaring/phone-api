@@ -45,7 +45,7 @@ Api.put('/phones/:id', (req, res, next) => {
         res.status(200);
         res.json({
             message: "Phone updated"
-        });
+        })
     })
     .catch(err => {
         res.status(500);
