@@ -1,7 +1,7 @@
 # Phone API 📱
 
 
-Welcome to de new **Phone API** about coolest Smartphones ever!  This REST API has been generated with Node.js and it's going to provide phone information like:
+Welcome to de new **Phone API** about coolest Smartphones ever!  This REST API has been generated with **Node.js** & **Mongo DB**, this it's going to provide phone information like:
 
 - Brand
 - Model
@@ -17,10 +17,7 @@ And much more info! 🔥
 ```
 https://localhost:3000/api/phones
 ```
-
-
-
-Response body example:
+>Response body about phone example:
 
 ```json
 [
@@ -40,7 +37,41 @@ Response body example:
 ]
 ```
 
-## /GET/id - Phone detail
+
+
+## /GET - Phone detail 
+
+```
+https://localhost:3000/api/phones/:id
+```
+
+
+
+## /PUT - Update the phone information except name and manufacturer
+
+```
+https://localhost:3000/api/phones/:id
+```
+
+
+
+## /DELETE - Delete a phone
+
+```
+https://localhost:3000/api/phones/:id
+```
+
+
+
+## Seed to restore information
+
+>If you try to edit or delete phone demo information you could restore this info executing the seed with:
+
+```js
+node helpers/seedPhones.js
+```
+
+
 
 
 
